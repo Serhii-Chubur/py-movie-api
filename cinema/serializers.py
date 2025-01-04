@@ -8,11 +8,6 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
         fields = '__all__'
 
-    id = serializers.IntegerField(read_only=True)
-    title = serializers.CharField(max_length=100)
-    description = serializers.CharField()
-    duration = serializers.IntegerField()
-
     def create(self, validated_data):
         return Movie.objects.create(**validated_data)
 
